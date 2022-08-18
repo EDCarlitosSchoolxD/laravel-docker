@@ -32,13 +32,17 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Instalamos dependendencias de composer
 RUN composer install --no-ansi --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts
-
 # Copiamos todos los archivos de la carpeta actual de nuestra 
 # computadora (los archivos de laravel) a /var/www/
 COPY . /var/www/
 
 ADD . /var/www
-RUN chown -R www-data:www-data /var/www
+
+RUN chmod -R gu+w /var/www/storage
+
+RUN chmod -R guo+w /var/www/storage
+
+
 
 # Exponemos el puerto 9000 a la network
 EXPOSE 9000

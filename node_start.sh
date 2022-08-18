@@ -7,3 +7,10 @@ npm install
 
 echo 'Watching changes'
 npm run watch
+
+composer install
+
+
+
+php artisan key:generate
+
